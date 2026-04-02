@@ -26,8 +26,8 @@ namespace LoginScreen
                 // 실패 시: 메시지 박스 대신 라벨 표시
                 lblErrorMsg.Visible = true;
                 //MessageBox.Show("로그인실패~", "로그인", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                
-                
+
+
             }
         }
 
@@ -85,6 +85,20 @@ namespace LoginScreen
                 e.SuppressKeyPress = true; // 기본비프음방지btnLogin.PerformClick(); // 버튼이눌린것처럼만들기}
                 btnLogin.PerformClick();
             }
+        }
+
+        private void chkShowPW_CheckedChanged(object sender, EventArgs e)
+        {
+            // 체크되면 비밀번호 보이기, 해제되면 숨기기
+            txtPW.UseSystemPasswordChar = chkShowPW.Checked;
+        }
+
+        private void btnClearAll_Click(object sender, EventArgs e)
+        {
+            txtID.Clear();
+            txtPW.Clear();
+            lblErrorMsg.Visible = false;
+            txtID.Focus(); // 다시 아이디 칸으로 포커스 이동
         }
     }
 }
