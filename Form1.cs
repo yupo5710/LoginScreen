@@ -17,12 +17,12 @@ namespace LoginScreen
             if (txtID.Text == myID && txtPW.Text == myPW)
             {
                 // 성공 메시지 박스 출력
-                MessageBox.Show("로그인 성공!","로그인");
+                MessageBox.Show("로그인성공!", "로그인", MessageBoxButtons.OK);
             }
             else
             {
                 // 실패 시: 메시지 박스 대신 라벨 표시
-                MessageBox.Show("로그인 실패!","로그인");
+                MessageBox.Show("로그인실패~", "로그인", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
         }
 
@@ -64,5 +64,23 @@ namespace LoginScreen
                 txtPW.ForeColor = Color.Silver;
             }
         }
+
+        private void txtID_KeyDown(object sender, KeyEventArgs e)
+        {
+            if (e.KeyCode == Keys.Enter)
+            {
+                e.SuppressKeyPress = true; // 기본비프음방지txtPW.Focus(); // 패스워드입력창이포커스를갖게끔}
+            }
+        }
+
+        private void txtPW_KeyDown(object sender, KeyEventArgs e)
+        {
+            if (e.KeyCode == Keys.Enter)
+            {
+                e.SuppressKeyPress = true; // 기본비프음방지btnLogin.PerformClick(); // 버튼이눌린것처럼만들기}
+            }
+        }
     }
 }
+
+    
