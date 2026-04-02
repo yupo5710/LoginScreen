@@ -74,16 +74,19 @@ namespace LoginScreen
         {
             if (e.KeyCode == Keys.Enter)
             {
-                e.SuppressKeyPress = true; // 기본비프음방지txtPW.Focus(); // 패스워드입력창이포커스를갖게끔}
+                txtPW.Focus();
+                // Enter 키 입력 소리(띵~) 방지
+                e.SuppressKeyPress = true;
             }
         }
 
         private void txtPW_KeyDown(object sender, KeyEventArgs e)
         {
+            // Enter키를 치면 로그인 버튼 클릭과 동일한 기능 수행
             if (e.KeyCode == Keys.Enter)
             {
-                e.SuppressKeyPress = true; // 기본비프음방지btnLogin.PerformClick(); // 버튼이눌린것처럼만들기}
                 btnLogin.PerformClick();
+                e.SuppressKeyPress = true;
             }
         }
 
