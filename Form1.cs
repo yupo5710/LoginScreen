@@ -78,6 +78,7 @@ namespace LoginScreen
             if (e.KeyCode == Keys.Enter)
             {
                 e.SuppressKeyPress = true; // 기본비프음방지btnLogin.PerformClick(); // 버튼이눌린것처럼만들기}
+                btnLogin.PerformClick();
             }
         }
     }
