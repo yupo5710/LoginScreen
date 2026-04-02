@@ -51,7 +51,7 @@
             txtID.Location = new Point(226, 171);
             txtID.Name = "txtID";
             txtID.Size = new Size(324, 57);
-            txtID.TabIndex = 1;
+            txtID.TabIndex = 2;
             txtID.Text = "아이디";
             txtID.Enter += txtID_Enter;
             txtID.Leave += txtID_Leave;
@@ -63,7 +63,7 @@
             txtPW.Location = new Point(226, 261);
             txtPW.Name = "txtPW";
             txtPW.Size = new Size(324, 57);
-            txtPW.TabIndex = 2;
+            txtPW.TabIndex = 3;
             txtPW.Text = "패스워드";
             txtPW.Enter += txtPW_Enter;
             txtPW.Leave += txtPW_Leave;
@@ -73,7 +73,7 @@
             btnLogin.Location = new Point(288, 401);
             btnLogin.Name = "btnLogin";
             btnLogin.Size = new Size(188, 76);
-            btnLogin.TabIndex = 3;
+            btnLogin.TabIndex = 1;
             btnLogin.Text = "로그인";
             btnLogin.UseVisualStyleBackColor = true;
             btnLogin.Click += btnLogin_Click;
