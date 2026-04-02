@@ -90,7 +90,7 @@
             lblErrorMsg.Location = new Point(166, 347);
             lblErrorMsg.Name = "lblErrorMsg";
             lblErrorMsg.Size = new Size(451, 32);
-            lblErrorMsg.TabIndex = 4;
+            lblErrorMsg.TabIndex = 5;
             lblErrorMsg.Text = "아이디 또는 비밀번호가 잘못되었습니다.";
             // 
             // chkShowPW
@@ -99,7 +99,7 @@
             chkShowPW.Location = new Point(508, 278);
             chkShowPW.Name = "chkShowPW";
             chkShowPW.Size = new Size(28, 27);
-            chkShowPW.TabIndex = 5;
+            chkShowPW.TabIndex = 6;
             chkShowPW.UseVisualStyleBackColor = true;
             chkShowPW.CheckedChanged += chkShowPW_CheckedChanged;
             // 
@@ -108,7 +108,7 @@
             btnClearAll.Location = new Point(550, 119);
             btnClearAll.Name = "btnClearAll";
             btnClearAll.Size = new Size(150, 46);
-            btnClearAll.TabIndex = 6;
+            btnClearAll.TabIndex = 4;
             btnClearAll.Text = "Clear ALL";
             btnClearAll.UseVisualStyleBackColor = true;
             btnClearAll.Click += btnClearAll_Click;
