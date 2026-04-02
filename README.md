@@ -31,27 +31,58 @@
   - Enter 키 입력을 감지하여 포커스 이동 및 로그인 실행 기능을 구현합니다.
 
 - 구현 내용과 기능 설명
-  - Label, TextBox, Button을 폼에 배치하여 기본 로그인 UI를 구성했다.
-    사용한 코드:
-    InitializeComponent();
-  - 아이디와 패스워드가 모두 맞아야 성공하도록 논리 연산자를 사용했다.
-    사용한 코드:
-    if (txtID.Text == myID && txtPW.Text == myPW)
-  - 포커스가 들어오면 힌트가 사라지고 글자색이 검정으로 변경되도록 했다.
-    사용한 코드:
-    if (txtID.Text == "아이디") { txtID.Text = ""; txtID.ForeColor = Color.Black; }
-  - 입력창이 비어있는 상태로 포커스가 나가면 다시 회색 힌트가 나타난다.
-    사용한 코드:
-    if (string.IsNullOrWhiteSpace(txtID.Text)) { txtID.Text = "아이디"; txtID.ForeColor = Color.Silver; }
-  - 패스워드 입력 시에만 마스킹이 활성화되고 힌트 상태에서는 글자가 보이게 제어했다.
-    사용한 코드:
-    txtPW.UseSystemPasswordChar = true; (Enter 이벤트 시 적용)
-  - 아이디 입력 중 Enter 키를 누르면 패스워드 창으로 포커스가 이동한다.
-    사용한 코드:
-    if (e.KeyCode == Keys.Enter) txtPW.Focus();
-  - 패스워드 입력 중 Enter 키를 누르면 로그인 버튼이 클릭된 것과 동일하게 작동한다.
-    사용한 코드:
-    btnLogin.PerformClick();
-  - 로그인 시도 결과에 따라 성공 및 실패 메시지 박스가 출력되도록 구현했다.
-    사용한 코드:
-    MessageBox.Show("로그인성공!", "로그인", MessageBoxButtons.OK);
+  - Label, TextBox, Button을 폼에 배치하여 기본 로그인 UI를 구성했다.   
+    사용한 코드:   
+    `InitializeComponent();`
+  - 아이디와 패스워드가 모두 맞아야 성공하도록 논리 연산자를 사용했다.  
+    사용한 코드:  
+    `if (txtID.Text == myID && txtPW.Text == myPW)`
+  - 포커스가 들어오면 힌트가 사라지고 글자색이 검정으로 변경되도록 했다.  
+    사용한 코드:  
+    `if (txtID.Text == "아이디") { txtID.Text = ""; txtID.ForeColor = Color.Black; }`
+  - 입력창이 비어있는 상태로 포커스가 나가면 다시 회색 힌트가 나타난다.  
+    사용한 코드:   
+    `if (string.IsNullOrWhiteSpace(txtID.Text)) { txtID.Text = "아이디"; txtID.ForeColor = Color.Silver; }`
+  - 패스워드 입력 시에만 마스킹이 활성화되고 힌트 상태에서는 글자가 보이게 제어했다.  
+    사용한 코드:   
+    `txtPW.UseSystemPasswordChar = true; (Enter 이벤트 시 적용)`
+  - 아이디 입력 중 Enter 키를 누르면 패스워드 창으로 포커스가 이동한다.  
+    사용한 코드:   
+    `if (e.KeyCode == Keys.Enter) txtPW.Focus();` 
+  - 패스워드 입력 중 Enter 키를 누르면 로그인 버튼이 클릭된 것과 동일하게 작동한다.   
+    사용한 코드:   
+    `btnLogin.PerformClick();`
+  - 로그인 시도 결과에 따라 성공 및 실패 메시지 박스가 출력되도록 구현했다.   
+    사용한 코드:   
+    `MessageBox.Show("로그인성공!", "로그인", MessageBoxButtons.OK);`
+## 실행 화면 (과제2)
+
+- 과제 2 코드의 실행 스크린샷  
+  ![과제2 실행화면](img/screenshot-4.png)
+
+- 과제 내용
+  - 로그인 실패 시 MessageBox 대신 화면 내 Label(lblErrorMsg)로 에러 표시
+  - Visible 속성을 이용한 에러 메시지의 동적 노출 및 숨김 제어
+  - 초기 실행 시 및 로그인 성공 시 에러 메시지가 보이지 않도록 설정
+  - 사용자 흐름을 방해하지 않는 인라인 피드백 방식 구현
+
+- 구현 내용과 기능 설명
+  - 프로그램 시작 시 사용자가 혼동하지 않도록 에러 메시지 라벨을 숨김 처리함.  
+    사용한 코드:  
+    `lblErrorMsg.Visible = false; // 생성자에서 초기화`
+
+  - 아이디나 패스워드가 틀렸을 경우 숨겨져 있던 에러 라벨을 즉시 화면에 나타냄.  
+    사용한 코드:  
+    `if (txtID.Text != myID || txtPW.Text != myPW) { lblErrorMsg.Visible = true; }`
+
+  - 로그인에 성공하면 기존에 표시되었던 에러 메시지를 다시 숨겨 상태를 초기화함.  
+    사용한 코드:  
+    `if (txtID.Text == myID && txtPW.Text == myPW) { lblErrorMsg.Visible = false; }`
+
+  - 기존의 중단형 알림창(MessageBox) 코드를 주석 처리하고 화면 내 시각적 피드백으로 대체함.  
+    사용한 코드:  
+    `// MessageBox.Show("로그인실패~", ...); (주석 처리 및 라벨 제어로 변경)`
+
+  - Enter 키를 이용한 로그인 시도 시에도 동일한 에러 라벨 로직이 적용되도록 구현함.  
+    사용한 코드:  
+    `private void txtPW_KeyDown(object sender, KeyEventArgs e) { btnLogin.PerformClick(); }`
