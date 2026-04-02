@@ -17,12 +17,12 @@ namespace LoginScreen
             if (txtID.Text == myID && txtPW.Text == myPW)
             {
                 // 성공 메시지 박스 출력
-                MessageBox.Show("로그인 성공!");
+                MessageBox.Show("로그인 성공!","로그인");
             }
             else
             {
                 // 실패 시: 메시지 박스 대신 라벨 표시
-                MessageBox.Show("로그인 실패!");
+                MessageBox.Show("로그인 실패!","로그인");
             }
         }
 
